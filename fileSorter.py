@@ -72,5 +72,5 @@ def otherPapers():
             os.remove(f"{path}\{file}")
 
 otherPapers()
-# monthYear()
+monthYear()
 
