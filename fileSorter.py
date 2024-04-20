@@ -1,14 +1,13 @@
 import os, shutil, re
 
 path = r"C:\Users\mkhvi\Downloads\iAL Mathematics (2018)\iAL Mathematics (2018)"
-
 respectiveFileCount = {}
-def checkFileCount():
-    name = input("File Type: ")
-    count = 0
+name = input("Filter: ")
+def checkFileCount(name):
 
     # Running file until user input is null
     while name.strip() != "":
+        count = 0
         for file in os.listdir(path):
 
             # Checking if file contains user input
@@ -25,17 +24,15 @@ def checkFileCount():
                     os.mkdir(f"{path}/{name}")
                     shutil.move(f"{path}/{file}", f"{path}/{name}")
 
+        # Updating dictionary 
         respectiveFileCount.update({name: count})
+
+        
         print(f"Created a {name} folder with {count} files")
+
         name = input("File Type: ")
         count = 0
 
-         
-        
-
     return respectiveFileCount
 
-    
-
-
-print(checkFileCount())
+print(checkFileCount(name))
